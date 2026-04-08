@@ -12,7 +12,11 @@
         "SUPABASE_ANON_KEY",
         "SUPABASE_PUBLISHABLE_KEY",
         "SUPABASE_SERVICE_ROLE_KEY",
-        "SUPABASE_SERVICE_KEY"
+        "SUPABASE_SERVICE_KEY",
+        "WEB_URL",
+        "GOOGLE_CLIENT_ID",
+        "GOOGLE_CLIENT_SECRET",
+        "GOOGLE_REDIRECT_URI"
       ]
     },
     "dev": {

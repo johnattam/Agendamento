@@ -2,7 +2,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node'
 import Fastify from 'fastify'
 import cors from '@fastify/cors'
 import { adminConfigRoutes } from '../src/routes/admin/config.js'
-import { adminGoogleRoutes } from '../src/routes/admin/google.js'
+import { adminGoogleRoutes, googleCallbackRoute } from '../src/routes/admin/google.js'
 import { adminEventTypeRoutes } from '../src/routes/admin/event-types.js'
 import { adminFormFieldRoutes } from '../src/routes/admin/form-fields.js'
 import { adminBookingRoutes } from '../src/routes/admin/bookings.js'
@@ -20,6 +20,7 @@ async function getApp() {
   app.get('/health', async () => ({ status: 'ok' }))
 
   await app.register(adminConfigRoutes)
+  await app.register(googleCallbackRoute)
   await app.register(adminGoogleRoutes)
   await app.register(adminEventTypeRoutes)
   await app.register(adminFormFieldRoutes)

@@ -1,7 +1,11 @@
 import { FastifyRequest, FastifyReply } from 'fastify'
 import { supabase } from '../db/client.js'
 
+const PUBLIC_PATHS = ['/admin/google/callback']
+
 export async function requireAuth(req: FastifyRequest, reply: FastifyReply) {
+  if (PUBLIC_PATHS.some((p) => req.url?.startsWith(p))) return
+
   const authHeader = req.headers.authorization
   if (!authHeader?.startsWith('Bearer ')) {
     return reply.status(401).send({ error: 'Unauthorized' })

@@ -4,13 +4,8 @@ import { supabase } from '../../db/client.js'
 import { config } from '../../config.js'
 import { getAuthUrl, exchangeCode, listCalendars } from '../../services/google-calendar.js'
 
-export async function adminGoogleRoutes(app: FastifyInstance) {
-  app.addHook('preHandler', requireAuth)
-
-  app.get('/admin/google/auth-url', async () => {
-    return { url: getAuthUrl() }
-  })
-
+// Public — Google redirects the browser here with no auth header
+export async function googleCallbackRoute(app: FastifyInstance) {
   app.get<{ Querystring: { code: string } }>(
     '/admin/google/callback',
     async (req, reply) => {
@@ -30,6 +25,14 @@ export async function adminGoogleRoutes(app: FastifyInstance) {
       return reply.redirect(`${config.WEB_URL}/admin/integration?connected=true`)
     }
   )
+}
+
+export async function adminGoogleRoutes(app: FastifyInstance) {
+  app.addHook('preHandler', requireAuth)
+
+  app.get('/admin/google/auth-url', async () => {
+    return { url: getAuthUrl() }
+  })
 
   app.get('/admin/google/calendars', async (_req, reply) => {
     const { data, error } = await supabase
