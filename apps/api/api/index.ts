@@ -1,13 +1,13 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import Fastify from 'fastify'
 import cors from '@fastify/cors'
-import { adminConfigRoutes } from '../src/routes/admin/config.js'
-import { adminGoogleRoutes } from '../src/routes/admin/google.js'
-import { adminEventTypeRoutes } from '../src/routes/admin/event-types.js'
-import { adminFormFieldRoutes } from '../src/routes/admin/form-fields.js'
-import { adminBookingRoutes } from '../src/routes/admin/bookings.js'
-import { publicEventRoutes } from '../src/routes/public/events.js'
-import { publicBookingRoutes } from '../src/routes/public/bookings.js'
+import { adminConfigRoutes } from '../src/routes/admin/config'
+import { adminGoogleRoutes } from '../src/routes/admin/google'
+import { adminEventTypeRoutes } from '../src/routes/admin/event-types'
+import { adminFormFieldRoutes } from '../src/routes/admin/form-fields'
+import { adminBookingRoutes } from '../src/routes/admin/bookings'
+import { publicEventRoutes } from '../src/routes/public/events'
+import { publicBookingRoutes } from '../src/routes/public/bookings'
 
 let app: ReturnType<typeof Fastify> | null = null
 
