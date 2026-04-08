@@ -68,6 +68,9 @@ export default function EventFormPage() {
       }
       await api.put(`/admin/event-types/${params.id}`, event)
       setSaved(true); setTimeout(() => setSaved(false), 2000)
+    } catch (err: any) {
+      alert('Erro ao salvar evento: ' + (err.message || 'Erro desconhecido'))
+      console.error(err)
     } finally {
       setSaving(false)
     }
