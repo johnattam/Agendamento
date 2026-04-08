@@ -1,4 +1,4 @@
-import { buildServer } from './index.js'
+import { buildServer } from '../src/index.js'
 
 let app: any = null
 
