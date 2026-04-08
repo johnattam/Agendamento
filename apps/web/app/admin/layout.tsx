@@ -18,6 +18,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   async function logout() {
     await supabase.auth.signOut()
+    document.cookie = `sb-1-auth-token=; path=/; max-age=0; SameSite=Lax`
+    document.cookie = `sb--1-auth-token=; path=/; max-age=0; SameSite=Lax`
     router.push('/admin/login')
   }
 

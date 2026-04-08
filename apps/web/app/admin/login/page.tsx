@@ -16,6 +16,7 @@ export default function LoginPage() {
     setError('')
     const { error } = await supabase.auth.signInWithPassword({ email, password })
     if (error) { setError('E-mail ou senha incorretos'); setLoading(false); return }
+    document.cookie = `sb-${supabase.auth.session?-1:1}-auth-token=true; path=/; max-age=604800; SameSite=Lax`
     router.push('/admin/events')
   }
 
