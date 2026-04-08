@@ -1,0 +1,16 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --blue: #003F7D;
+  --teal: #007A8C;
+  --light: #E8F4F8;
+  --accent: #00A99D;
+  --warm: #F5F3EE;
+  --text: #1A2332;
+  --muted: #6B7A8D;
+  --border: #D0DCE8;
+  --success: #2E7D51;
+  --error: #C0392B;
+}
+
+body { font-family: 'DM Sans', sans-serif; background: var(--warm); color: var(--text); }
